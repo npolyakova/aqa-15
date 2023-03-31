@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'io.rest-assured:rest-assured:5.3.0'
+    testImplementation 'io.cucumber:cucumber-junit:6.10.4'
+    testImplementation 'io.cucumber:cucumber-java:6.10.4'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
